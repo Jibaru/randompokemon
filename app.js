@@ -32,11 +32,21 @@ const loadData = async () => {
   const uber = await fetch("/data/uber.json").then((response) =>
     response.json()
   );
-  const ou = await fetch("/data/ou.json").then((response) => response.json());
-  const uu = await fetch("/data/uu.json").then((response) => response.json());
-  const pu = await fetch("/data/pu.json").then((response) => response.json());
-  const ru = await fetch("/data/ru.json").then((response) => response.json());
-  const nu = await fetch("/data/ru.json").then((response) => response.json());
+  const ou = await fetch(
+    "https://jibaru.github.io/randompokemon/data/ou.json"
+  ).then((response) => response.json());
+  const uu = await fetch(
+    "https://jibaru.github.io/randompokemon/data/uu.json"
+  ).then((response) => response.json());
+  const pu = await fetch(
+    "https://jibaru.github.io/randompokemon/data/pu.json"
+  ).then((response) => response.json());
+  const ru = await fetch(
+    "https://jibaru.github.io/randompokemon/data/ru.json"
+  ).then((response) => response.json());
+  const nu = await fetch(
+    "https://jibaru.github.io/randompokemon/data/ru.json"
+  ).then((response) => response.json());
 
   uberPokemon = uber.pokemon_with_strategies;
   ouPokemon = ou.pokemon_with_strategies;

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Random Pokemon Generator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <section id="main">
+      <h1>Random Pokemon Generator (9th Gen)</h1>
+      <form id="form">
+        <div id="inputs">
+          <input type="checkbox" id="uber" name="tier" value="uber" checked />
+          <label for="uber">Uber</label>
+          <input type="checkbox" id="ou" name="tier" value="ou" checked />
+          <label for="ou">OU</label>
+          <input type="checkbox" id="uu" name="tier" value="uu" checked />
+          <label for="uu">UU</label>
+          <input type="checkbox" id="pu" name="tier" value="pu" checked />
+          <label for="pu">PU</label>
+          <input type="checkbox" id="ru" name="tier" value="ru" checked />
+          <label for="ru">RU</label>
+          <input type="checkbox" id="nu" name="tier" value="nu" checked />
+          <label for="nu">NU</label>
+        </div>
+        <div>
+          <button type="submit">Generate</button>
+        </div>
+      </form>
+    </section>
+    <section id="pokemons">
+      <ul id="pokemon-list"></ul>
+    </section>
+    <footer>
+      Pokémon is © Nintendo. Website is © Ignacio Rueda. Last Update 16 March
+      2024.
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

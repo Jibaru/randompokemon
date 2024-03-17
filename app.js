@@ -29,9 +29,9 @@ const getImageUrlHyphened = (pokemonName) => {
 };
 
 const loadData = async () => {
-  const uber = await fetch("/data/uber.json").then((response) =>
-    response.json()
-  );
+  const uber = await fetch(
+    "https://jibaru.github.io/randompokemon/data/uber.json"
+  ).then((response) => response.json());
   const ou = await fetch(
     "https://jibaru.github.io/randompokemon/data/ou.json"
   ).then((response) => response.json());

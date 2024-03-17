@@ -45,7 +45,7 @@ const loadData = async () => {
     "https://jibaru.github.io/randompokemon/data/ru.json"
   ).then((response) => response.json());
   const nu = await fetch(
-    "https://jibaru.github.io/randompokemon/data/ru.json"
+    "https://jibaru.github.io/randompokemon/data/nu.json"
   ).then((response) => response.json());
 
   uberPokemon = uber.pokemon_with_strategies;

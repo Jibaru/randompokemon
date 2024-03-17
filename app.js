@@ -1,3 +1,5 @@
+import { dex } from "./pokedex.js";
+
 const form = document.querySelector("#form");
 
 let uberPokemon = [];
@@ -12,7 +14,7 @@ let nuPokemon = [];
  * @returns {string}
  */
 const getImageUrl = (pokemonName) => {
-  imageName = pokemonName.toLowerCase();
+  const imageName = pokemonName.toLowerCase();
 
   return `https://www.smogon.com/dex/media/sprites/xy/${imageName}.gif`;
 };
@@ -22,41 +24,33 @@ const getImageUrl = (pokemonName) => {
  * @returns {string}
  */
 const getImageUrlHyphened = (pokemonName) => {
-  imageName = pokemonName.toLowerCase();
+  let imageName = pokemonName.toLowerCase();
   imageName = imageName.replace(" ", "-");
 
   return `https://www.smogon.com/dex/media/sprites/xy/${imageName}.gif`;
 };
 
-const loadData = async () => {
-  const uber = await fetch(
-    "https://jibaru.github.io/randompokemon/data/uber.json"
-  ).then((response) => response.json());
-  const ou = await fetch(
-    "https://jibaru.github.io/randompokemon/data/ou.json"
-  ).then((response) => response.json());
-  const uu = await fetch(
-    "https://jibaru.github.io/randompokemon/data/uu.json"
-  ).then((response) => response.json());
-  const pu = await fetch(
-    "https://jibaru.github.io/randompokemon/data/pu.json"
-  ).then((response) => response.json());
-  const ru = await fetch(
-    "https://jibaru.github.io/randompokemon/data/ru.json"
-  ).then((response) => response.json());
-  const nu = await fetch(
-    "https://jibaru.github.io/randompokemon/data/nu.json"
-  ).then((response) => response.json());
+const loadData = () => {
+  for (const pokemon in dex) {
+    const pokemonName = dex[pokemon].name;
 
-  uberPokemon = uber.pokemon_with_strategies;
-  ouPokemon = ou.pokemon_with_strategies;
-  uuPokemon = uu.pokemon_with_strategies;
-  puPokemon = pu.pokemon_with_strategies;
-  ruPokemon = ru.pokemon_with_strategies;
-  nuPokemon = nu.pokemon_with_strategies;
+    if (dex[pokemon].tier == "UBER") {
+      uberPokemon.push(pokemonName);
+    } else if (dex[pokemon].tier == "OU") {
+      ouPokemon.push(pokemonName);
+    } else if (dex[pokemon].tier == "UU") {
+      uuPokemon.push(pokemonName);
+    } else if (dex[pokemon].tier == "PU") {
+      puPokemon.push(pokemonName);
+    } else if (dex[pokemon].tier == "RU") {
+      ruPokemon.push(pokemonName);
+    } else if (dex[pokemon].tier == "NU") {
+      nuPokemon.push(pokemonName);
+    }
+  }
 };
 
-form.addEventListener("submit", async (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const uberChecked = document.querySelector("#uber").checked;
@@ -107,7 +101,6 @@ form.addEventListener("submit", async (event) => {
 
     span.textContent = pokemon;
 
-    imageName = pokemon.toLowerCase();
     img.src = getImageUrl(pokemon);
     img.onerror = function () {
       img.src = getImageUrlHyphened(pokemon);

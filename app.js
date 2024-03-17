@@ -1,13 +1,34 @@
 import { dex } from "./pokedex.js";
 
-const form = document.querySelector("#form");
+const SPRITE_URL =
+  "https://www.smogon.com/dex/media/sprites/xy/{imageName}.gif";
 
-let uberPokemon = [];
-let ouPokemon = [];
-let uuPokemon = [];
-let puPokemon = [];
-let ruPokemon = [];
-let nuPokemon = [];
+/** @type {string[]} */
+let UBER_POKEMON_NAMES = [];
+
+/** @type {string[]} */
+let OU_POKEMON_NAMES = [];
+
+/** @type {string[]} */
+let UU_POKEMON_NAMES = [];
+
+/** @type {string[]} */
+let PU_POKEMON_NAMES = [];
+
+/** @type {string[]} */
+let RU_POKEMON_NAMES = [];
+
+/** @type {string[]} */
+let NU_POKEMON_NAMES = [];
+
+/** @type {string[]} */
+let NFE_POKEMON_NAMES = [];
+
+/** @type {string[]} */
+let LC_POKEMON_NAMES = [];
+
+/** @type {HTMLFormElement} */
+const form = document.querySelector("#form");
 
 /**
  * @param {string} pokemonName
@@ -16,7 +37,7 @@ let nuPokemon = [];
 const getImageUrl = (pokemonName) => {
   const imageName = pokemonName.toLowerCase();
 
-  return `https://www.smogon.com/dex/media/sprites/xy/${imageName}.gif`;
+  return SPRITE_URL.replace("{imageName}", imageName);
 };
 
 /**
@@ -27,88 +48,128 @@ const getImageUrlHyphened = (pokemonName) => {
   let imageName = pokemonName.toLowerCase();
   imageName = imageName.replace(" ", "-");
 
-  return `https://www.smogon.com/dex/media/sprites/xy/${imageName}.gif`;
+  return SPRITE_URL.replace("{imageName}", imageName);
 };
 
 const loadData = () => {
   for (const pokemon in dex) {
     const pokemonName = dex[pokemon].name;
 
-    if (dex[pokemon].tier == "UBER") {
-      uberPokemon.push(pokemonName);
+    if (dex[pokemon].tier == "Uber") {
+      UBER_POKEMON_NAMES.push(pokemonName);
     } else if (dex[pokemon].tier == "OU") {
-      ouPokemon.push(pokemonName);
+      OU_POKEMON_NAMES.push(pokemonName);
     } else if (dex[pokemon].tier == "UU") {
-      uuPokemon.push(pokemonName);
+      UU_POKEMON_NAMES.push(pokemonName);
     } else if (dex[pokemon].tier == "PU") {
-      puPokemon.push(pokemonName);
+      PU_POKEMON_NAMES.push(pokemonName);
     } else if (dex[pokemon].tier == "RU") {
-      ruPokemon.push(pokemonName);
+      RU_POKEMON_NAMES.push(pokemonName);
     } else if (dex[pokemon].tier == "NU") {
-      nuPokemon.push(pokemonName);
+      NU_POKEMON_NAMES.push(pokemonName);
+    } else if (dex[pokemon].tier == "NFE") {
+      NFE_POKEMON_NAMES.push(pokemonName);
+    } else if (dex[pokemon].tier == "LC") {
+      LC_POKEMON_NAMES.push(pokemonName);
     }
   }
+  console.log(UBER_POKEMON_NAMES);
+  console.log(OU_POKEMON_NAMES);
+  console.log(UU_POKEMON_NAMES);
+  console.log(PU_POKEMON_NAMES);
+  console.log(RU_POKEMON_NAMES);
+  console.log(NU_POKEMON_NAMES);
+  console.log(NFE_POKEMON_NAMES);
+  console.log(LC_POKEMON_NAMES);
 };
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
+  /** @type {boolean} */
   const uberChecked = document.querySelector("#uber").checked;
+  /** @type {boolean} */
   const ouChecked = document.querySelector("#ou").checked;
+  /** @type {boolean} */
   const uuChecked = document.querySelector("#uu").checked;
+  /** @type {boolean} */
   const puChecked = document.querySelector("#pu").checked;
+  /** @type {boolean} */
   const ruChecked = document.querySelector("#ru").checked;
+  /** @type {boolean} */
   const nuChecked = document.querySelector("#nu").checked;
+  /** @type {boolean} */
+  const nfeChecked = document.querySelector("#nfe").checked;
+  /** @type {boolean} */
+  const lcChecked = document.querySelector("#lc").checked;
 
-  const pokemons = [];
+  /** @type {string[]} */
+  const pokemonNames = [];
   if (uberChecked) {
-    pokemons.push(...uberPokemon);
+    pokemonNames.push(...UBER_POKEMON_NAMES);
   }
 
   if (ouChecked) {
-    pokemons.push(...ouPokemon);
+    pokemonNames.push(...OU_POKEMON_NAMES);
   }
 
   if (uuChecked) {
-    pokemons.push(...uuPokemon);
+    pokemonNames.push(...UU_POKEMON_NAMES);
   }
 
   if (puChecked) {
-    pokemons.push(...puPokemon);
+    pokemonNames.push(...PU_POKEMON_NAMES);
   }
 
   if (ruChecked) {
-    pokemons.push(...ruPokemon);
+    pokemonNames.push(...RU_POKEMON_NAMES);
   }
 
   if (nuChecked) {
-    pokemons.push(...nuPokemon);
+    pokemonNames.push(...NU_POKEMON_NAMES);
   }
 
-  const selectedPokemons = [];
+  if (nfeChecked) {
+    pokemonNames.push(...NFE_POKEMON_NAMES);
+  }
+
+  if (lcChecked) {
+    pokemonNames.push(...LC_POKEMON_NAMES);
+  }
+
+  const selectedPokemonNames = {};
   for (let i = 0; i < 6; i++) {
-    const randomIndex = Math.floor(Math.random() * pokemons.length);
-    selectedPokemons.push(pokemons[randomIndex]);
+    const randomIndex = Math.floor(Math.random() * pokemonNames.length);
+
+    const pokemonName = pokemonNames[randomIndex];
+
+    if (selectedPokemonNames[pokemonName]) {
+      i--;
+      continue;
+    }
+
+    selectedPokemonNames[pokemonName] = true;
   }
 
-  const list = document.querySelector("#pokemon-list");
-  list.innerHTML = "";
-  for (const pokemon of selectedPokemons) {
-    const listItem = document.createElement("li");
-
+  /** @type {HTMLElement} */
+  const ul = document.querySelector("#pokemon-list");
+  ul.innerHTML = "";
+  for (const pokemonName in selectedPokemonNames) {
+    const li = document.createElement("li");
     const span = document.createElement("span");
     const img = document.createElement("img");
 
-    span.textContent = pokemon;
+    span.textContent = pokemonName;
 
-    img.src = getImageUrl(pokemon);
+    img.src = getImageUrl(pokemonName);
     img.onerror = function () {
-      img.src = getImageUrlHyphened(pokemon);
+      img.src = getImageUrlHyphened(pokemonName);
     };
-    img.alt = pokemon;
-    listItem.appendChild(span);
-    listItem.prepend(img);
-    list.appendChild(listItem);
+    img.alt = pokemonName;
+
+    li.appendChild(span);
+    li.prepend(img);
+    ul.appendChild(li);
   }
 });
 

@@ -6,7 +6,7 @@
 }
 #main {
   border: 1px dotted black;
-  width: fit-content;
+  max-width: fit-content;
   margin: 0 auto;
   margin-top: 1.5rem;
   padding: 1rem;

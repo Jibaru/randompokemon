@@ -36,6 +36,15 @@ button {
   padding: 0.5rem;
 }
 
+#alert {
+  background-color: red;
+  color: white;
+  padding: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+  display: none;
+}
+
 #pokemons {
   min-width: 300px;
   max-width: 700px;

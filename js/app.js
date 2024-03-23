@@ -1,35 +1,74 @@
+import { Configuration } from "./configuration.js";
 import { RandomPokemonGenerator } from "./generator.js";
 
 /** @type {HTMLFormElement} */
 const form = document.querySelector("#form");
 /** @type {HTMLElement} */
 const alertElement = document.querySelector("#alert");
+/** @type {HTMLFormElement} */
+const uberCheckbox = document.querySelector("#uber");
+/** @type {HTMLFormElement} */
+const ouCheckbox = document.querySelector("#ou");
+/** @type {HTMLFormElement} */
+const uuCheckbox = document.querySelector("#uu");
+/** @type {HTMLFormElement} */
+const puCheckbox = document.querySelector("#pu");
+/** @type {HTMLFormElement} */
+const ruCheckbox = document.querySelector("#ru");
+/** @type {HTMLFormElement} */
+const nuCheckbox = document.querySelector("#nu");
+/** @type {HTMLFormElement} */
+const nfeCheckbox = document.querySelector("#nfe");
+/** @type {HTMLFormElement} */
+const lcCheckbox = document.querySelector("#lc");
 
 const generator = new RandomPokemonGenerator();
+const config = Configuration.instance();
+
+document.addEventListener("DOMContentLoaded", () => {
+  uberCheckbox.checked = config.uberChecked;
+  ouCheckbox.checked = config.ouChecked;
+  uuCheckbox.checked = config.uuChecked;
+  puCheckbox.checked = config.puChecked;
+  ruCheckbox.checked = config.ruChecked;
+  nuCheckbox.checked = config.nuChecked;
+  nfeCheckbox.checked = config.nfeChecked;
+  lcCheckbox.checked = config.lcChecked;
+});
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   alertElement.style.display = "none";
 
   /** @type {boolean} */
-  const uberChecked = document.querySelector("#uber").checked;
+  const uberChecked = uberCheckbox.checked;
   /** @type {boolean} */
-  const ouChecked = document.querySelector("#ou").checked;
+  const ouChecked = ouCheckbox.checked;
   /** @type {boolean} */
-  const uuChecked = document.querySelector("#uu").checked;
+  const uuChecked = uuCheckbox.checked;
   /** @type {boolean} */
-  const puChecked = document.querySelector("#pu").checked;
+  const puChecked = puCheckbox.checked;
   /** @type {boolean} */
-  const ruChecked = document.querySelector("#ru").checked;
+  const ruChecked = ruCheckbox.checked;
   /** @type {boolean} */
-  const nuChecked = document.querySelector("#nu").checked;
+  const nuChecked = nuCheckbox.checked;
   /** @type {boolean} */
-  const nfeChecked = document.querySelector("#nfe").checked;
+  const nfeChecked = nfeCheckbox.checked;
   /** @type {boolean} */
-  const lcChecked = document.querySelector("#lc").checked;
+  const lcChecked = lcCheckbox.checked;
+
+  config.updateUberChecked(uberChecked);
+  config.updateOuChecked(ouChecked);
+  config.updateUuChecked(uuChecked);
+  config.updatePuChecked(puChecked);
+  config.updateRuChecked(ruChecked);
+  config.updateNuChecked(nuChecked);
+  config.updateNfeChecked(nfeChecked);
+  config.updateLcChecked(lcChecked);
+  config.toLocalStorage();
 
   const selectedPokemons = generator.generate(
-    uberChecked,
+    uberCheckbox.checked,
     ouChecked,
     uuChecked,
     puChecked,

@@ -4,9 +4,11 @@ const SPRITE_URL =
 export class Pokemon {
   /**
    * @param {string} name
+   * @param {string} tier
    */
-  constructor(name) {
+  constructor(name, tier) {
     this._name = name;
+    this._tier = tier;
   }
 
   /**
@@ -14,6 +16,13 @@ export class Pokemon {
    */
   get name() {
     return this._name;
+  }
+
+  /**
+   * @returns {string}
+   */
+  get tier() {
+    return this._tier;
   }
 
   /**

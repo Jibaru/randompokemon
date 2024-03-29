@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/app.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>Pokemon List</h1>
+        <nav>
+          <ul>
+            <li><a href="../index.html">Go back to generator</a></li>
+          </ul>
+        </nav>
+        <form id="filter-form">
+          <div id="inputs">
+            <input name="search" placeholder="search..." />
+            <input type="checkbox" id="uber" name="tier" value="uber" checked />
+            <label for="uber">Uber</label>
+            <input type="checkbox" id="ou" name="tier" value="ou" checked />
+            <label for="ou">OU</label>
+            <input type="checkbox" id="uu" name="tier" value="uu" checked />
+            <label for="uu">UU</label>
+            <input type="checkbox" id="pu" name="tier" value="pu" checked />
+            <label for="pu">PU</label>
+            <input type="checkbox" id="ru" name="tier" value="ru" checked />
+            <label for="ru">RU</label>
+            <input type="checkbox" id="nu" name="tier" value="nu" checked />
+            <label for="nu">NU</label>
+            <input type="checkbox" id="nfe" name="tier" value="nfe" checked />
+            <label for="nfe">NFE</label>
+            <input type="checkbox" id="lc" name="tier" value="lc" checked />
+            <label for="nc">LC</label>
+          </div>
+          <button type="submit" class="btn">Find</button>
+        </form>
+      </section>
+      <section id="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Sprite</th>
+              <th>Name</th>
+              <th>Tier</th>
+            </tr>
+          </thead>
+          <tbody id="pokemons"></tbody>
+        </table>
+      </section>
+    </main>
+    <script src="js/app.js" type="module"></script>
+  </body>
+</html>

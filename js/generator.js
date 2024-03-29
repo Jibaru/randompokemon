@@ -1,66 +1,12 @@
-import { dex } from "./pokedex.js";
 import { Pokemon } from "./pokemon.js";
-
-/** @type {Pokemon[]} */
-let UBER_POKEMONS = [];
-
-/** @type {Pokemon[]} */
-let OU_POKEMONS = [];
-
-/** @type {Pokemon[]} */
-let UU_POKEMONS = [];
-
-/** @type {Pokemon[]} */
-let PU_POKEMONS = [];
-
-/** @type {Pokemon[]} */
-let RU_POKEMONS = [];
-
-/** @type {Pokemon[]} */
-let NU_POKEMONS = [];
-
-/** @type {Pokemon[]} */
-let NFE_POKEMONS = [];
-
-/** @type {Pokemon[]} */
-let LC_POKEMONS = [];
+import { TierList } from "./tierlist.js";
 
 export class RandomPokemonGenerator {
-  constructor() {
-    this._load();
-  }
-
-  _load() {
-    for (const pokemon in dex) {
-      const pokemonName = dex[pokemon].name;
-      const pokemonObj = new Pokemon(pokemonName);
-
-      if (dex[pokemon].tier == "Uber") {
-        UBER_POKEMONS.push(pokemonObj);
-      } else if (dex[pokemon].tier == "OU") {
-        OU_POKEMONS.push(pokemonObj);
-      } else if (dex[pokemon].tier == "UU") {
-        UU_POKEMONS.push(pokemonObj);
-      } else if (dex[pokemon].tier == "PU") {
-        PU_POKEMONS.push(pokemonObj);
-      } else if (dex[pokemon].tier == "RU") {
-        RU_POKEMONS.push(pokemonObj);
-      } else if (dex[pokemon].tier == "NU") {
-        NU_POKEMONS.push(pokemonObj);
-      } else if (dex[pokemon].tier == "NFE") {
-        NFE_POKEMONS.push(pokemonObj);
-      } else if (dex[pokemon].tier == "LC") {
-        LC_POKEMONS.push(pokemonObj);
-      }
-    }
-    console.log(UBER_POKEMONS);
-    console.log(OU_POKEMONS);
-    console.log(UU_POKEMONS);
-    console.log(PU_POKEMONS);
-    console.log(RU_POKEMONS);
-    console.log(NU_POKEMONS);
-    console.log(NFE_POKEMONS);
-    console.log(LC_POKEMONS);
+  /**
+   * @param {TierList} tierList
+   */
+  constructor(tierList) {
+    this._tierList = tierList;
   }
 
   /**
@@ -87,35 +33,35 @@ export class RandomPokemonGenerator {
     /** @type {string[]} */
     const pokemons = [];
     if (includeUber) {
-      pokemons.push(...UBER_POKEMONS);
+      pokemons.push(...this._tierList.uberPokemons);
     }
 
     if (includeOU) {
-      pokemons.push(...OU_POKEMONS);
+      pokemons.push(...this._tierList.overUsedPokemons);
     }
 
     if (includeUU) {
-      pokemons.push(...UU_POKEMONS);
+      pokemons.push(...this._tierList.underUsedPokemons);
     }
 
     if (includePU) {
-      pokemons.push(...PU_POKEMONS);
+      pokemons.push(...this._tierList.puPokemons);
     }
 
     if (includeRU) {
-      pokemons.push(...RU_POKEMONS);
+      pokemons.push(...this._tierList.rareUsedPokemons);
     }
 
     if (includeNU) {
-      pokemons.push(...NU_POKEMONS);
+      pokemons.push(...this._tierList.neverUsedPokemons);
     }
 
     if (includeNFE) {
-      pokemons.push(...NFE_POKEMONS);
+      pokemons.push(...this._tierList.notFullEvolvedPokemons);
     }
 
     if (includeLC) {
-      pokemons.push(...LC_POKEMONS);
+      pokemons.push(...this._tierList.littleCupPokemons);
     }
 
     if (pokemons.length === 0) {

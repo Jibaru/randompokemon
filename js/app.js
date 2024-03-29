@@ -1,5 +1,6 @@
 import { Configuration } from "./configuration.js";
 import { RandomPokemonGenerator } from "./generator.js";
+import { TierList } from "./tierlist.js";
 
 /** @type {HTMLFormElement} */
 const form = document.querySelector("#form");
@@ -22,7 +23,8 @@ const nfeCheckbox = document.querySelector("#nfe");
 /** @type {HTMLFormElement} */
 const lcCheckbox = document.querySelector("#lc");
 
-const generator = new RandomPokemonGenerator();
+const tierList = new TierList();
+const generator = new RandomPokemonGenerator(tierList);
 const config = Configuration.instance();
 
 document.addEventListener("DOMContentLoaded", () => {

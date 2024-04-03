@@ -26,6 +26,13 @@ export class TierList {
 
     /** @type {Pokemon[]} */
     this.littleCupPokemons = [];
+
+    /** @type {Pokemon[]} */
+    this.zuPokemons = [];
+
+    /** @type {Pokemon[]} */
+    this.anythingGoesPokemons = [];
+
     this._load();
   }
 
@@ -38,18 +45,22 @@ export class TierList {
         this.uberPokemons.push(pokemonObj);
       } else if (dex[pokemon].tier == "OU") {
         this.overUsedPokemons.push(pokemonObj);
-      } else if (dex[pokemon].tier == "UU") {
+      } else if (dex[pokemon].tier == "UU" || dex[pokemon].tier == "UUBL") {
         this.underUsedPokemons.push(pokemonObj);
-      } else if (dex[pokemon].tier == "PU") {
+      } else if (dex[pokemon].tier == "PU" || dex[pokemon].tier == "PUBL") {
         this.puPokemons.push(pokemonObj);
-      } else if (dex[pokemon].tier == "RU") {
+      } else if (dex[pokemon].tier == "RU" || dex[pokemon].tier == "RUBL") {
         this.rareUsedPokemons.push(pokemonObj);
-      } else if (dex[pokemon].tier == "NU") {
+      } else if (dex[pokemon].tier == "NU" || dex[pokemon].tier == "NUBL") {
         this.neverUsedPokemons.push(pokemonObj);
       } else if (dex[pokemon].tier == "NFE") {
         this.notFullEvolvedPokemons.push(pokemonObj);
       } else if (dex[pokemon].tier == "LC") {
         this.littleCupPokemons.push(pokemonObj);
+      } else if (dex[pokemon].tier == "ZU" || dex[pokemon].tier == "ZUBL") {
+        this.zuPokemons.push(pokemonObj);
+      } else if (dex[pokemon].tier == "AG") {
+        this.anythingGoesPokemons.push(pokemonObj);
       }
     }
   }
@@ -63,7 +74,9 @@ export class TierList {
     ru = true,
     nu = true,
     nfe = true,
-    lc = true
+    lc = true,
+    zu = true,
+    ag = true
   ) {
     let allPokemons = [];
 
@@ -99,6 +112,14 @@ export class TierList {
       allPokemons.push(...this.littleCupPokemons);
     }
 
+    if (zu) {
+      allPokemons.push(...this.zuPokemons);
+    }
+
+    if (ag) {
+      allPokemons.push(...this.anythingGoesPokemons);
+    }
+
     if (search) {
       allPokemons = allPokemons.filter((pokemon) =>
         pokemon.name.toLowerCase().includes(search.toLowerCase())
@@ -106,5 +127,41 @@ export class TierList {
     }
 
     return allPokemons.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  /**
+   *
+   * @param {TierList} otherTierList
+   * @returns {Object[]}
+   */
+  compareWithOtherTierList(otherTierList) {
+    const pokemons = this.pokemons();
+    const otherPokemons = otherTierList.pokemons();
+
+    const differences = [];
+    for (const pokemon of pokemons) {
+      const otherPokemon = otherPokemons.find(
+        (p) => p.name.toLowerCase() === pokemon.name.toLowerCase()
+      );
+
+      if (!otherPokemon) {
+        differences.push({
+          name: pokemon.name,
+          tier: pokemon.tier,
+          otherTier: "Not found",
+        });
+        continue;
+      }
+
+      if (otherPokemon && otherPokemon.tier != pokemon.tier) {
+        differences.push({
+          name: pokemon.name,
+          tier: pokemon.tier,
+          otherTier: otherPokemon.tier,
+        });
+      }
+    }
+
+    return differences;
   }
 }

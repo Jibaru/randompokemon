@@ -3,12 +3,14 @@ export class Configuration {
   static _instance = null;
 
   constructor() {
+    this.agChecked = true;
     this.uberChecked = true;
     this.ouChecked = true;
     this.uuChecked = true;
     this.puChecked = true;
     this.ruChecked = true;
     this.nuChecked = true;
+    this.zuChecked = true;
     this.nfeChecked = true;
     this.lcChecked = true;
   }
@@ -24,12 +26,14 @@ export class Configuration {
         const storage = JSON.parse(configString);
         const configuration = new Configuration();
 
+        configuration.agChecked = storage.agChecked;
         configuration.uberChecked = storage.uberChecked;
         configuration.ouChecked = storage.ouChecked;
         configuration.uuChecked = storage.uuChecked;
         configuration.puChecked = storage.puChecked;
         configuration.ruChecked = storage.ruChecked;
         configuration.nuChecked = storage.nuChecked;
+        configuration.zuChecked = storage.zuChecked;
         configuration.nfeChecked = storage.nfeChecked;
         configuration.lcChecked = storage.lcChecked;
 
@@ -67,6 +71,11 @@ export class Configuration {
   }
 
   /** @param {boolean} checked */
+  updateAgChecked(checked) {
+    this.agChecked = checked;
+  }
+
+  /** @param {boolean} checked */
   updateUberChecked(checked) {
     this.uberChecked = checked;
   }
@@ -94,6 +103,11 @@ export class Configuration {
   /** @param {boolean} checked */
   updateNuChecked(checked) {
     this.nuChecked = checked;
+  }
+
+  /** @param {boolean} checked */
+  updateZuChecked(checked) {
+    this.zuChecked = checked;
   }
 
   /** @param {boolean} checked */

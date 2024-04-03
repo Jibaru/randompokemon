@@ -52,8 +52,22 @@ filterForm.addEventListener("submit", (event) => {
   const nu = event.target.nu.checked;
   const nfe = event.target.nfe.checked;
   const lc = event.target.lc.checked;
+  const zu = event.target.zu.checked;
+  const ag = event.target.ag.checked;
 
-  const pokemons = tierList.pokemons(search, uber, ou, uu, pu, ru, nu, nfe, lc);
+  const pokemons = tierList.pokemons(
+    search,
+    uber,
+    ou,
+    uu,
+    pu,
+    ru,
+    nu,
+    nfe,
+    lc,
+    zu,
+    ag
+  );
 
   pokemonTable.innerHTML = "";
   renderPokemons(pokemons);

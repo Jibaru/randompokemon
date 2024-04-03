@@ -10,28 +10,36 @@ export class RandomPokemonGenerator {
   }
 
   /**
+   * @param {boolean} includeAnythingGoes
    * @param {boolean} includeUber
    * @param {boolean} includeOU
    * @param {boolean} includeUU
    * @param {boolean} includePU
    * @param {boolean} includeRU
    * @param {boolean} includeNU
+   * @param {boolean} includeZU
    * @param {boolean} includeNFE
    * @param {boolean} includeLC
    * @returns {Pokemon[]}
    */
   generate(
+    includeAnythingGoes,
     includeUber,
     includeOU,
     includeUU,
     includePU,
     includeRU,
     includeNU,
+    includeZU,
     includeNFE,
     includeLC
   ) {
     /** @type {string[]} */
     const pokemons = [];
+    if (includeAnythingGoes) {
+      pokemons.push(...this._tierList.anythingGoesPokemons);
+    }
+
     if (includeUber) {
       pokemons.push(...this._tierList.uberPokemons);
     }
@@ -56,6 +64,10 @@ export class RandomPokemonGenerator {
       pokemons.push(...this._tierList.neverUsedPokemons);
     }
 
+    if (includeZU) {
+      pokemons.push(...this._tierList.zuPokemons);
+    }
+
     if (includeNFE) {
       pokemons.push(...this._tierList.notFullEvolvedPokemons);
     }
@@ -69,7 +81,8 @@ export class RandomPokemonGenerator {
     }
 
     const selectedPokemonByNames = {};
-    for (let i = 0; i < 6; i++) {
+    const total = Math.min(6, pokemons.length);
+    for (let i = 0; i < total; i++) {
       const randomIndex = Math.floor(Math.random() * pokemons.length);
       const pokemon = pokemons[randomIndex];
 

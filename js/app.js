@@ -7,6 +7,8 @@ const form = document.querySelector("#form");
 /** @type {HTMLElement} */
 const alertElement = document.querySelector("#alert");
 /** @type {HTMLFormElement} */
+const agCheckbox = document.querySelector("#ag");
+/** @type {HTMLFormElement} */
 const uberCheckbox = document.querySelector("#uber");
 /** @type {HTMLFormElement} */
 const ouCheckbox = document.querySelector("#ou");
@@ -19,6 +21,8 @@ const ruCheckbox = document.querySelector("#ru");
 /** @type {HTMLFormElement} */
 const nuCheckbox = document.querySelector("#nu");
 /** @type {HTMLFormElement} */
+const zuCheckbox = document.querySelector("#zu");
+/** @type {HTMLFormElement} */
 const nfeCheckbox = document.querySelector("#nfe");
 /** @type {HTMLFormElement} */
 const lcCheckbox = document.querySelector("#lc");
@@ -28,12 +32,14 @@ const generator = new RandomPokemonGenerator(tierList);
 const config = Configuration.instance();
 
 document.addEventListener("DOMContentLoaded", () => {
+  agCheckbox.checked = config.agChecked;
   uberCheckbox.checked = config.uberChecked;
   ouCheckbox.checked = config.ouChecked;
   uuCheckbox.checked = config.uuChecked;
   puCheckbox.checked = config.puChecked;
   ruCheckbox.checked = config.ruChecked;
   nuCheckbox.checked = config.nuChecked;
+  zuCheckbox.checked = config.zuChecked;
   nfeCheckbox.checked = config.nfeChecked;
   lcCheckbox.checked = config.lcChecked;
 });
@@ -42,6 +48,8 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   alertElement.style.display = "none";
 
+  /** @type {boolean} */
+  const agChecked = agCheckbox.checked;
   /** @type {boolean} */
   const uberChecked = uberCheckbox.checked;
   /** @type {boolean} */
@@ -55,27 +63,33 @@ form.addEventListener("submit", (event) => {
   /** @type {boolean} */
   const nuChecked = nuCheckbox.checked;
   /** @type {boolean} */
+  const zuChecked = zuCheckbox.checked;
+  /** @type {boolean} */
   const nfeChecked = nfeCheckbox.checked;
   /** @type {boolean} */
   const lcChecked = lcCheckbox.checked;
 
+  config.updateAgChecked(agChecked);
   config.updateUberChecked(uberChecked);
   config.updateOuChecked(ouChecked);
   config.updateUuChecked(uuChecked);
   config.updatePuChecked(puChecked);
   config.updateRuChecked(ruChecked);
   config.updateNuChecked(nuChecked);
+  config.updateZuChecked(zuChecked);
   config.updateNfeChecked(nfeChecked);
   config.updateLcChecked(lcChecked);
   config.toLocalStorage();
 
   const selectedPokemons = generator.generate(
-    uberCheckbox.checked,
+    agChecked,
+    uberChecked,
     ouChecked,
     uuChecked,
     puChecked,
     ruChecked,
     nuChecked,
+    zuChecked,
     nfeChecked,
     lcChecked
   );

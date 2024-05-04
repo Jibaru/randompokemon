@@ -13,6 +13,8 @@ export class Configuration {
     this.zuChecked = true;
     this.nfeChecked = true;
     this.lcChecked = true;
+    this.differentSpeciesChecked = true;
+    this.numberOfPokemons = 6;
   }
 
   /**
@@ -36,6 +38,8 @@ export class Configuration {
         configuration.zuChecked = storage.zuChecked;
         configuration.nfeChecked = storage.nfeChecked;
         configuration.lcChecked = storage.lcChecked;
+        configuration.differentSpeciesChecked = storage.differentSpeciesChecked;
+        configuration.numberOfPokemons = storage.numberOfPokemons;
 
         return configuration;
       } catch (error) {
@@ -118,5 +122,15 @@ export class Configuration {
   /** @param {boolean} checked */
   updateLcChecked(checked) {
     this.lcChecked = checked;
+  }
+
+  /** @param {boolean} checked */
+  updateDifferentSpeciesChecked(checked) {
+    this.differentSpeciesChecked = checked;
+  }
+
+  /**@param {number} numberOfPokemons */
+  updateNumberOfPokemons(numberOfPokemons) {
+    this.numberOfPokemons = numberOfPokemons;
   }
 }

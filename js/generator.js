@@ -10,6 +10,7 @@ export class RandomPokemonGenerator {
   }
 
   /**
+   * @param {number} numberOfPokemons
    * @param {boolean} includeAnythingGoes
    * @param {boolean} includeUber
    * @param {boolean} includeOU
@@ -20,9 +21,11 @@ export class RandomPokemonGenerator {
    * @param {boolean} includeZU
    * @param {boolean} includeNFE
    * @param {boolean} includeLC
+   * @param {boolean} differentBaseSpecies
    * @returns {Pokemon[]}
    */
   generate(
+    numberOfPokemons,
     includeAnythingGoes,
     includeUber,
     includeOU,
@@ -32,7 +35,8 @@ export class RandomPokemonGenerator {
     includeNU,
     includeZU,
     includeNFE,
-    includeLC
+    includeLC,
+    differentBaseSpecies
   ) {
     /** @type {string[]} */
     const pokemons = [];
@@ -80,20 +84,25 @@ export class RandomPokemonGenerator {
       return [];
     }
 
-    const selectedPokemonByNames = {};
-    const total = Math.min(6, pokemons.length);
+    const selectedPokemonByKeys = {};
+    const total = Math.min(numberOfPokemons, pokemons.length);
     for (let i = 0; i < total; i++) {
       const randomIndex = Math.floor(Math.random() * pokemons.length);
       const pokemon = pokemons[randomIndex];
+      let key = pokemon.name;
 
-      if (selectedPokemonByNames[pokemon.name]) {
+      if (differentBaseSpecies) {
+        key += "&" + pokemon.baseSpecies;
+      }
+
+      if (selectedPokemonByKeys[key]) {
         i--;
         continue;
       }
 
-      selectedPokemonByNames[pokemon.name] = pokemon;
+      selectedPokemonByKeys[key] = pokemon;
     }
 
-    return Object.values(selectedPokemonByNames);
+    return Object.values(selectedPokemonByKeys);
   }
 }

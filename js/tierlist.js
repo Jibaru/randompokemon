@@ -39,7 +39,11 @@ export class TierList {
   _load() {
     for (const pokemon in dex) {
       const pokemonName = dex[pokemon].name;
-      const pokemonObj = new Pokemon(pokemonName, dex[pokemon].tier);
+      const pokemonObj = new Pokemon(
+        pokemonName,
+        dex[pokemon].tier,
+        dex[pokemon].baseSpecies
+      );
 
       if (dex[pokemon].tier == "Uber") {
         this.uberPokemons.push(pokemonObj);

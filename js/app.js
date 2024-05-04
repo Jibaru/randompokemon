@@ -26,6 +26,10 @@ const zuCheckbox = document.querySelector("#zu");
 const nfeCheckbox = document.querySelector("#nfe");
 /** @type {HTMLFormElement} */
 const lcCheckbox = document.querySelector("#lc");
+/** @type {HTMLFormElement} */
+const differentSpeciesCheckbox = document.querySelector("#different-species");
+/** @type {HTMLFormElement} */
+const numberOfPokemonsInput = document.querySelector("#number-of-pokemons");
 
 const tierList = new TierList();
 const generator = new RandomPokemonGenerator(tierList);
@@ -42,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
   zuCheckbox.checked = config.zuChecked;
   nfeCheckbox.checked = config.nfeChecked;
   lcCheckbox.checked = config.lcChecked;
+  differentSpeciesCheckbox.checked = config.differentSpeciesChecked;
+  numberOfPokemonsInput.value = config.numberOfPokemons.toString();
 });
 
 form.addEventListener("submit", (event) => {
@@ -68,6 +74,10 @@ form.addEventListener("submit", (event) => {
   const nfeChecked = nfeCheckbox.checked;
   /** @type {boolean} */
   const lcChecked = lcCheckbox.checked;
+  /** @type {boolean} */
+  const differentSpeciesChecked = differentSpeciesCheckbox.checked;
+  /** @type {number} */
+  const numberOfPokemons = parseInt(numberOfPokemonsInput.value) ?? 6;
 
   config.updateAgChecked(agChecked);
   config.updateUberChecked(uberChecked);
@@ -79,9 +89,12 @@ form.addEventListener("submit", (event) => {
   config.updateZuChecked(zuChecked);
   config.updateNfeChecked(nfeChecked);
   config.updateLcChecked(lcChecked);
+  config.updateDifferentSpeciesChecked(differentSpeciesChecked);
+  config.updateNumberOfPokemons(numberOfPokemons);
   config.toLocalStorage();
 
   const selectedPokemons = generator.generate(
+    numberOfPokemons,
     agChecked,
     uberChecked,
     ouChecked,
@@ -91,7 +104,8 @@ form.addEventListener("submit", (event) => {
     nuChecked,
     zuChecked,
     nfeChecked,
-    lcChecked
+    lcChecked,
+    differentSpeciesChecked
   );
 
   if (selectedPokemons.length === 0) {

@@ -5,10 +5,12 @@ export class Pokemon {
   /**
    * @param {string} name
    * @param {string} tier
+   * @param {string} baseSpecies
    */
-  constructor(name, tier) {
+  constructor(name, tier, baseSpecies) {
     this._name = name;
     this._tier = tier;
+    this._baseSpecies = baseSpecies;
   }
 
   /**
@@ -28,8 +30,15 @@ export class Pokemon {
   /**
    * @returns {string}
    */
+  get baseSpecies() {
+    return this._baseSpecies;
+  }
+
+  /**
+   * @returns {string}
+   */
   imageUrl() {
-    const imageName = this.name.toLowerCase();
+    const imageName = this.name.toLowerCase().replace("'", "");
 
     return SPRITE_URL.replace("{imageName}", imageName);
   }
@@ -38,7 +47,7 @@ export class Pokemon {
    * @returns {string}
    */
   imageUrlHyphened() {
-    let imageName = this.name.toLowerCase();
+    let imageName = this.name.toLowerCase().replace("'", "");
     imageName = imageName.replace(" ", "-");
 
     return SPRITE_URL.replace("{imageName}", imageName);

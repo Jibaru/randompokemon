@@ -1,5 +1,7 @@
 const SPRITE_URL =
   "https://www.smogon.com/dex/media/sprites/xy/{imageName}.gif";
+const GEN_5_SPRITE_URL =
+  "https://play.pokemonshowdown.com/sprites/gen5/{imageName}.png";
 
 export class Pokemon {
   /**
@@ -47,7 +49,15 @@ export class Pokemon {
    * @returns {string}
    */
   imageUrl() {
-    const imageName = this.name.toLowerCase().replace("'", "");
+    if (this.name === "Pikachu-World") {
+      return GEN_5_SPRITE_URL.replace("{imageName}", "pikachu-world");
+    }
+
+    const imageName = this.name
+      .toLowerCase()
+      .replace("'", "")
+      .split("é")
+      .join("e");
 
     return SPRITE_URL.replace("{imageName}", imageName);
   }
@@ -56,8 +66,16 @@ export class Pokemon {
    * @returns {string}
    */
   imageUrlHyphened() {
-    let imageName = this.name.toLowerCase().replace("'", "");
-    imageName = imageName.replace(" ", "-");
+    if (this.name === "Pikachu-World") {
+      return GEN_5_SPRITE_URL.replace("{imageName}", "pikachu-world");
+    }
+
+    const imageName = this.name
+      .toLowerCase()
+      .replace("'", "")
+      .split("é")
+      .join("e")
+      .replace(" ", "-");
 
     return SPRITE_URL.replace("{imageName}", imageName);
   }

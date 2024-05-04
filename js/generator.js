@@ -38,7 +38,7 @@ export class RandomPokemonGenerator {
     includeLC,
     differentBaseSpecies
   ) {
-    /** @type {string[]} */
+    /** @type {Pokemon[]} */
     const pokemons = [];
     if (includeAnythingGoes) {
       pokemons.push(...this._tierList.anythingGoesPokemons);
@@ -86,13 +86,17 @@ export class RandomPokemonGenerator {
 
     const selectedPokemonByKeys = {};
     const total = Math.min(numberOfPokemons, pokemons.length);
-    for (let i = 0; i < total; i++) {
+    for (
+      let i = 0, maxTries = 100000;
+      i < total && maxTries > 0;
+      i++, maxTries--
+    ) {
       const randomIndex = Math.floor(Math.random() * pokemons.length);
       const pokemon = pokemons[randomIndex];
       let key = pokemon.name;
 
       if (differentBaseSpecies) {
-        key += "&" + pokemon.baseSpecies;
+        key = pokemon.dexNumber;
       }
 
       if (selectedPokemonByKeys[key]) {

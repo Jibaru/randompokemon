@@ -6,11 +6,13 @@ export class Pokemon {
    * @param {string} name
    * @param {string} tier
    * @param {string} baseSpecies
+   * @param {number} dexNumber
    */
-  constructor(name, tier, baseSpecies) {
+  constructor(name, tier, baseSpecies, dexNumber) {
     this._name = name;
     this._tier = tier;
     this._baseSpecies = baseSpecies;
+    this._dexNumber = dexNumber;
   }
 
   /**
@@ -32,6 +34,13 @@ export class Pokemon {
    */
   get baseSpecies() {
     return this._baseSpecies;
+  }
+
+  /**
+   * @returns {number}
+   */
+  get dexNumber() {
+    return this._dexNumber;
   }
 
   /**

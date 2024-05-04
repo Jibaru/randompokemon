@@ -11,31 +11,71 @@
       <h1>Random Pokemon Generator (9th Gen)</h1>
       <nav>
         <ul>
-          <li><a href="pokemons/index.html">See pokemon list</a></li>
+          <li>
+            <a href="pokemons/index.html" class="tooltip">
+              See pokemon list
+              <span class="tooltiptext">
+                See pokemon used in this generator
+              </span>
+            </a>
+          </li>
         </ul>
       </nav>
       <form id="form">
         <div class="inputs">
           <input type="checkbox" id="ag" name="tier" value="ag" checked />
-          <label for="ag">AG</label>
+          <label for="ag" class="tooltip">
+            AG
+            <span class="tooltiptext">Anything Goes</span>
+          </label>
           <input type="checkbox" id="uber" name="tier" value="uber" checked />
-          <label for="uber">Uber</label>
+          <label for="uber" class="tooltip">
+            Uber
+            <span class="tooltiptext">Uber</span>
+          </label>
           <input type="checkbox" id="ou" name="tier" value="ou" checked />
-          <label for="ou">OU</label>
+          <label for="ou" class="tooltip">
+            OU
+            <span class="tooltiptext">Over Used</span>
+          </label>
           <input type="checkbox" id="uu" name="tier" value="uu" checked />
-          <label for="uu">UU</label>
+          <label for="uu" class="tooltip">
+            UU
+            <span class="tooltiptext">Under Used</span>
+          </label>
           <input type="checkbox" id="pu" name="tier" value="pu" checked />
-          <label for="pu">PU</label>
+          <label for="pu" class="tooltip">
+            PU
+            <span class="tooltiptext">Partially Used</span>
+          </label>
           <input type="checkbox" id="ru" name="tier" value="ru" checked />
-          <label for="ru">RU</label>
+          <label for="ru" class="tooltip">
+            RU
+            <span class="tooltiptext">Rarely Used</span>
+          </label>
           <input type="checkbox" id="nu" name="tier" value="nu" checked />
-          <label for="nu">NU</label>
+          <label for="nu" class="tooltip">
+            NU
+            <span class="tooltiptext">Never Used</span>
+          </label>
           <input type="checkbox" id="zu" name="tier" value="zu" checked />
-          <label for="zu">ZU</label>
+          <label for="zu" class="tooltip">
+            ZU
+            <span class="tooltiptext">Zero Used</span>
+          </label>
           <input type="checkbox" id="nfe" name="tier" value="nfe" checked />
-          <label for="nfe">NFE</label>
+          <label for="nfe" class="tooltip">
+            NFE
+            <span class="tooltiptext"
+              >Not Fully Evolved. Keep in mind that not all non-fully evolved
+              pokemon are NFE</span
+            >
+          </label>
           <input type="checkbox" id="lc" name="tier" value="lc" checked />
-          <label for="nc">LC</label>
+          <label for="nc" class="tooltip">
+            LC
+            <span class="tooltiptext">Little Cup</span>
+          </label>
         </div>
         <div class="inputs">
           <input
@@ -45,15 +85,22 @@
             value="different-species"
             checked
           />
-          <label for="different-species">Different Species</label>
-
+          <label for="different-species" class="tooltip">
+            Different Species
+            <span class="tooltiptext">
+              Generate pokemon with different base species
+            </span>
+          </label>
           <input
             type="number"
             id="number-of-pokemons"
             name="number-of-pokemons"
             value="6"
           />
-          <label for="number-of-pokemons"># Pokemon</label>
+          <label for="number-of-pokemons" class="tooltip">
+            # Pokemon
+            <span class="tooltiptext">Number of pokemon to generate</span>
+          </label>
         </div>
         <div>
           <button type="submit">Generate</button>
@@ -65,8 +112,11 @@
       <ul id="pokemon-list"></ul>
     </section>
     <footer>
-      Pokémon is © Nintendo. Website is © Ignacio Rueda. Last Update May 3rd
-      2024. v1.3.0
+      Pokémon is © Nintendo. Website is © Ignacio Rueda.
+      <a href="https://github.com/Jibaru/randompokemon" target="_blank">
+        Github</a
+      >
+      . Last Update May 3rd 2024. v1.4.0
     </footer>
     <script src="js/app.js" type="module"></script>
   </body>

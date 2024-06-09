@@ -1,9 +1,12 @@
 import { Configuration } from "./configuration.js";
+import { ExcelGenerator } from "./excel.js";
 import { RandomPokemonGenerator } from "./generator.js";
 import { TierList } from "./tierlist.js";
 
 /** @type {HTMLFormElement} */
 const form = document.querySelector("#form");
+/** @type {HTMLFormElement} */
+const exportBtn = document.querySelector("#export-btn");
 /** @type {HTMLElement} */
 const alertElement = document.querySelector("#alert");
 /** @type {HTMLFormElement} */
@@ -36,27 +39,9 @@ const numberOfPokemonsInput = document.querySelector("#number-of-pokemons");
 const tierList = new TierList();
 const generator = new RandomPokemonGenerator(tierList);
 const config = Configuration.instance();
+const excelGenerator = new ExcelGenerator();
 
-document.addEventListener("DOMContentLoaded", () => {
-  agCheckbox.checked = config.agChecked;
-  uberCheckbox.checked = config.uberChecked;
-  ouCheckbox.checked = config.ouChecked;
-  uuCheckbox.checked = config.uuChecked;
-  puCheckbox.checked = config.puChecked;
-  ruCheckbox.checked = config.ruChecked;
-  nuCheckbox.checked = config.nuChecked;
-  zuCheckbox.checked = config.zuChecked;
-  nfeCheckbox.checked = config.nfeChecked;
-  lcCheckbox.checked = config.lcChecked;
-  differentSpeciesCheckbox.checked = config.differentSpeciesChecked;
-  noPreEvolutionsCheckbox.checked = config.noPreEvolutionsChecked;
-  numberOfPokemonsInput.value = config.numberOfPokemons.toString();
-});
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  alertElement.style.display = "none";
-
+const updateConfigurationFromForm = () => {
   /** @type {boolean} */
   const agChecked = agCheckbox.checked;
   /** @type {boolean} */
@@ -98,6 +83,60 @@ form.addEventListener("submit", (event) => {
   config.updateNoPreEvolutionsChecked(noPreEvolutionsChecked);
   config.updateNumberOfPokemons(numberOfPokemons);
   config.toLocalStorage();
+};
+
+const loadConfigurationToForm = () => {
+  agCheckbox.checked = config.agChecked;
+  uberCheckbox.checked = config.uberChecked;
+  ouCheckbox.checked = config.ouChecked;
+  uuCheckbox.checked = config.uuChecked;
+  puCheckbox.checked = config.puChecked;
+  ruCheckbox.checked = config.ruChecked;
+  nuCheckbox.checked = config.nuChecked;
+  zuCheckbox.checked = config.zuChecked;
+  nfeCheckbox.checked = config.nfeChecked;
+  lcCheckbox.checked = config.lcChecked;
+  differentSpeciesCheckbox.checked = config.differentSpeciesChecked;
+  noPreEvolutionsCheckbox.checked = config.noPreEvolutionsChecked;
+  numberOfPokemonsInput.value = config.numberOfPokemons.toString();
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadConfigurationToForm();
+});
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  alertElement.style.display = "none";
+
+  /** @type {boolean} */
+  const agChecked = agCheckbox.checked;
+  /** @type {boolean} */
+  const uberChecked = uberCheckbox.checked;
+  /** @type {boolean} */
+  const ouChecked = ouCheckbox.checked;
+  /** @type {boolean} */
+  const uuChecked = uuCheckbox.checked;
+  /** @type {boolean} */
+  const puChecked = puCheckbox.checked;
+  /** @type {boolean} */
+  const ruChecked = ruCheckbox.checked;
+  /** @type {boolean} */
+  const nuChecked = nuCheckbox.checked;
+  /** @type {boolean} */
+  const zuChecked = zuCheckbox.checked;
+  /** @type {boolean} */
+  const nfeChecked = nfeCheckbox.checked;
+  /** @type {boolean} */
+  const lcChecked = lcCheckbox.checked;
+  /** @type {boolean} */
+  const differentSpeciesChecked = differentSpeciesCheckbox.checked;
+  /** @type {boolean} */
+  const noPreEvolutionsChecked = noPreEvolutionsCheckbox.checked;
+  /** @type {number} */
+  const numberOfPokemons = parseInt(numberOfPokemonsInput.value) ?? 6;
+
+  updateConfigurationFromForm();
 
   const selectedPokemons = generator.generate(
     numberOfPokemons,
@@ -143,4 +182,47 @@ form.addEventListener("submit", (event) => {
     li.prepend(img);
     ul.appendChild(li);
   }
+});
+
+exportBtn.addEventListener("click", () => {
+  /** @type {boolean} */
+  const agChecked = agCheckbox.checked;
+  /** @type {boolean} */
+  const uberChecked = uberCheckbox.checked;
+  /** @type {boolean} */
+  const ouChecked = ouCheckbox.checked;
+  /** @type {boolean} */
+  const uuChecked = uuCheckbox.checked;
+  /** @type {boolean} */
+  const puChecked = puCheckbox.checked;
+  /** @type {boolean} */
+  const ruChecked = ruCheckbox.checked;
+  /** @type {boolean} */
+  const nuChecked = nuCheckbox.checked;
+  /** @type {boolean} */
+  const zuChecked = zuCheckbox.checked;
+  /** @type {boolean} */
+  const nfeChecked = nfeCheckbox.checked;
+  /** @type {boolean} */
+  const lcChecked = lcCheckbox.checked;
+  /** @type {boolean} */
+  const noPreEvolutionsChecked = noPreEvolutionsCheckbox.checked;
+
+  updateConfigurationFromForm();
+
+  const selectedPokemons = generator.pokemonList(
+    agChecked,
+    uberChecked,
+    ouChecked,
+    uuChecked,
+    puChecked,
+    ruChecked,
+    nuChecked,
+    zuChecked,
+    nfeChecked,
+    lcChecked,
+    noPreEvolutionsChecked
+  );
+
+  excelGenerator.generate(selectedPokemons);
 });

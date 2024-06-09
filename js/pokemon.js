@@ -95,4 +95,14 @@ export class Pokemon {
 
     return SPRITE_URL.replace("{imageName}", imageName);
   }
+
+  toMap() {
+    return {
+      name: this.name,
+      tier: this.tier,
+      baseSpecies: this.baseSpecies,
+      dexNumber: this.dexNumber,
+      hasEvolutions: this.hasEvolutions,
+    };
+  }
 }

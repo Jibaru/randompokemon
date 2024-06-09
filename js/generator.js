@@ -40,6 +40,77 @@ export class RandomPokemonGenerator {
     differentBaseSpecies,
     noPreEvolutions
   ) {
+    const pokemons = this.pokemonList(
+      includeAnythingGoes,
+      includeUber,
+      includeOU,
+      includeUU,
+      includePU,
+      includeRU,
+      includeNU,
+      includeZU,
+      includeNFE,
+      includeLC,
+      noPreEvolutions
+    );
+
+    if (pokemons.length === 0) {
+      return [];
+    }
+
+    const selectedPokemonByKeys = {};
+    const total = Math.min(numberOfPokemons, pokemons.length);
+    for (
+      let i = 0, maxTries = 100000;
+      i < total && maxTries > 0;
+      i++, maxTries--
+    ) {
+      const randomIndex = Math.floor(Math.random() * pokemons.length);
+      const pokemon = pokemons[randomIndex];
+      let key = pokemon.name;
+
+      if (differentBaseSpecies) {
+        key = pokemon.dexNumber;
+      }
+
+      if (selectedPokemonByKeys[key]) {
+        i--;
+        continue;
+      }
+
+      selectedPokemonByKeys[key] = pokemon;
+    }
+
+    return Object.values(selectedPokemonByKeys);
+  }
+
+  /**
+   * @param {boolean} includeAnythingGoes
+   * @param {boolean} includeUber
+   * @param {boolean} includeOU
+   * @param {boolean} includeUU
+   * @param {boolean} includePU
+   * @param {boolean} includeRU
+   * @param {boolean} includeNU
+   * @param {boolean} includeZU
+   * @param {boolean} includeNFE
+   * @param {boolean} includeLC
+   * @param {boolean} noPreEvolutions
+   * @returns {Pokemon[]}
+   */
+  pokemonList(
+    includeAnythingGoes,
+    includeUber,
+    includeOU,
+    includeUU,
+    includePU,
+    includeRU,
+    includeNU,
+    includeZU,
+    includeNFE,
+    includeLC,
+    noPreEvolutions
+  ) {
     /** @type {Pokemon[]} */
     let pokemons = [];
     if (includeAnythingGoes) {
@@ -86,33 +157,6 @@ export class RandomPokemonGenerator {
       pokemons = pokemons.filter((pokemon) => pokemon.doesNotHaveEvolutions);
     }
 
-    if (pokemons.length === 0) {
-      return [];
-    }
-
-    const selectedPokemonByKeys = {};
-    const total = Math.min(numberOfPokemons, pokemons.length);
-    for (
-      let i = 0, maxTries = 100000;
-      i < total && maxTries > 0;
-      i++, maxTries--
-    ) {
-      const randomIndex = Math.floor(Math.random() * pokemons.length);
-      const pokemon = pokemons[randomIndex];
-      let key = pokemon.name;
-
-      if (differentBaseSpecies) {
-        key = pokemon.dexNumber;
-      }
-
-      if (selectedPokemonByKeys[key]) {
-        i--;
-        continue;
-      }
-
-      selectedPokemonByKeys[key] = pokemon;
-    }
-
-    return Object.values(selectedPokemonByKeys);
+    return pokemons;
   }
 }

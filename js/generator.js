@@ -22,6 +22,7 @@ export class RandomPokemonGenerator {
    * @param {boolean} includeNFE
    * @param {boolean} includeLC
    * @param {boolean} differentBaseSpecies
+   * @param {boolean} noPreEvolutions
    * @returns {Pokemon[]}
    */
   generate(
@@ -36,10 +37,11 @@ export class RandomPokemonGenerator {
     includeZU,
     includeNFE,
     includeLC,
-    differentBaseSpecies
+    differentBaseSpecies,
+    noPreEvolutions
   ) {
     /** @type {Pokemon[]} */
-    const pokemons = [];
+    let pokemons = [];
     if (includeAnythingGoes) {
       pokemons.push(...this._tierList.anythingGoesPokemons);
     }
@@ -78,6 +80,10 @@ export class RandomPokemonGenerator {
 
     if (includeLC) {
       pokemons.push(...this._tierList.littleCupPokemons);
+    }
+
+    if (noPreEvolutions) {
+      pokemons = pokemons.filter((pokemon) => pokemon.doesNotHaveEvolutions);
     }
 
     if (pokemons.length === 0) {

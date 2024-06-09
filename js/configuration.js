@@ -14,6 +14,7 @@ export class Configuration {
     this.nfeChecked = true;
     this.lcChecked = true;
     this.differentSpeciesChecked = true;
+    this.noPreEvolutionsChecked = true;
     this.numberOfPokemons = 6;
   }
 
@@ -39,6 +40,7 @@ export class Configuration {
         configuration.nfeChecked = storage.nfeChecked;
         configuration.lcChecked = storage.lcChecked;
         configuration.differentSpeciesChecked = storage.differentSpeciesChecked;
+        configuration.noPreEvolutionsChecked = storage.noPreEvolutionsChecked;
         configuration.numberOfPokemons = storage.numberOfPokemons;
 
         return configuration;
@@ -127,6 +129,11 @@ export class Configuration {
   /** @param {boolean} checked */
   updateDifferentSpeciesChecked(checked) {
     this.differentSpeciesChecked = checked;
+  }
+
+  /** @param {boolean} checked */
+  updateNoPreEvolutionsChecked(checked) {
+    this.noPreEvolutionsChecked = checked;
   }
 
   /**@param {number} numberOfPokemons */

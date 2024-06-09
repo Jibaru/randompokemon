@@ -42,7 +42,8 @@ export class TierList {
         dex[pokemon].name,
         dex[pokemon].tier,
         dex[pokemon].baseSpecies,
-        dex[pokemon].num
+        dex[pokemon].num,
+        !!dex[pokemon].evos
       );
 
       if (dex[pokemon].tier == "Uber") {

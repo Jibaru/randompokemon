@@ -92,6 +92,20 @@
             </span>
           </label>
           <input
+            type="checkbox"
+            id="no-pre-evolutions"
+            name="no-pre-evolutions"
+            value="no-pre-evolutions"
+            checked
+          />
+          <label for="no-pre-evolutions" class="tooltip">
+            No Pre-evolutions
+            <span class="tooltiptext">
+              Generate pokemon that are not pre-evolutions. This flag remove
+              pokemon for NFE, and not NFE that exists in other tiers.
+            </span>
+          </label>
+          <input
             type="number"
             id="number-of-pokemons"
             name="number-of-pokemons"
@@ -116,7 +130,7 @@
       <a href="https://github.com/Jibaru/randompokemon" target="_blank">
         Github</a
       >
-      . Last Update May 3rd 2024. v1.4.2
+      . Last Update June 8th 2024. v1.5.0
     </footer>
     <script src="js/app.js" type="module"></script>
   </body>

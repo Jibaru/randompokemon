@@ -29,6 +29,8 @@ const lcCheckbox = document.querySelector("#lc");
 /** @type {HTMLFormElement} */
 const differentSpeciesCheckbox = document.querySelector("#different-species");
 /** @type {HTMLFormElement} */
+const noPreEvolutionsCheckbox = document.querySelector("#no-pre-evolutions");
+/** @type {HTMLFormElement} */
 const numberOfPokemonsInput = document.querySelector("#number-of-pokemons");
 
 const tierList = new TierList();
@@ -47,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   nfeCheckbox.checked = config.nfeChecked;
   lcCheckbox.checked = config.lcChecked;
   differentSpeciesCheckbox.checked = config.differentSpeciesChecked;
+  noPreEvolutionsCheckbox.checked = config.noPreEvolutionsChecked;
   numberOfPokemonsInput.value = config.numberOfPokemons.toString();
 });
 
@@ -76,6 +79,8 @@ form.addEventListener("submit", (event) => {
   const lcChecked = lcCheckbox.checked;
   /** @type {boolean} */
   const differentSpeciesChecked = differentSpeciesCheckbox.checked;
+  /** @type {boolean} */
+  const noPreEvolutionsChecked = noPreEvolutionsCheckbox.checked;
   /** @type {number} */
   const numberOfPokemons = parseInt(numberOfPokemonsInput.value) ?? 6;
 
@@ -90,6 +95,7 @@ form.addEventListener("submit", (event) => {
   config.updateNfeChecked(nfeChecked);
   config.updateLcChecked(lcChecked);
   config.updateDifferentSpeciesChecked(differentSpeciesChecked);
+  config.updateNoPreEvolutionsChecked(noPreEvolutionsChecked);
   config.updateNumberOfPokemons(numberOfPokemons);
   config.toLocalStorage();
 
@@ -105,11 +111,12 @@ form.addEventListener("submit", (event) => {
     zuChecked,
     nfeChecked,
     lcChecked,
-    differentSpeciesChecked
+    differentSpeciesChecked,
+    noPreEvolutionsChecked
   );
 
   if (selectedPokemons.length === 0) {
-    alertElement.textContent = "Please select at least one tier.";
+    alertElement.textContent = "There is no pokemon to generate.";
     alertElement.style.display = "block";
     return;
   }

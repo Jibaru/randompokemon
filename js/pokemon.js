@@ -9,12 +9,14 @@ export class Pokemon {
    * @param {string} tier
    * @param {string} baseSpecies
    * @param {number} dexNumber
+   * @param {boolean} hasEvolutions
    */
-  constructor(name, tier, baseSpecies, dexNumber) {
+  constructor(name, tier, baseSpecies, dexNumber, hasEvolutions) {
     this._name = name;
     this._tier = tier;
     this._baseSpecies = baseSpecies;
     this._dexNumber = dexNumber;
+    this._hasEvolutions = hasEvolutions;
   }
 
   /**
@@ -43,6 +45,20 @@ export class Pokemon {
    */
   get dexNumber() {
     return this._dexNumber;
+  }
+
+  /**
+   * @returns {boolean}
+   */
+  get hasEvolutions() {
+    return this._hasEvolutions;
+  }
+
+  /**
+   * @returns {boolean}
+   */
+  get doesNotHaveEvolutions() {
+    return !this._hasEvolutions;
   }
 
   /**

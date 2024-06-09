@@ -36,6 +36,14 @@ export class TierList {
     this._load();
   }
 
+  _hasEvolutions(pokemonOfDex) {
+    if (pokemonOfDex.baseSpecies == "Pikachu") {
+      return true;
+    }
+
+    return !!pokemonOfDex.evos;
+  }
+
   _load() {
     for (const pokemon in dex) {
       const pokemonObj = new Pokemon(
@@ -43,7 +51,7 @@ export class TierList {
         dex[pokemon].tier,
         dex[pokemon].baseSpecies,
         dex[pokemon].num,
-        !!dex[pokemon].evos
+        this._hasEvolutions(dex[pokemon])
       );
 
       if (dex[pokemon].tier == "Uber") {

@@ -1,12 +1,15 @@
 import { Configuration } from "./configuration.js";
 import { ExcelGenerator } from "./excel.js";
 import { RandomPokemonGenerator } from "./generator.js";
+import { SelectedPokemon } from "./selected-pokemon.js";
 import { TierList } from "./tierlist.js";
 
 /** @type {HTMLFormElement} */
 const form = document.querySelector("#form");
 /** @type {HTMLFormElement} */
 const exportBtn = document.querySelector("#export-btn");
+/** @type {HTMLFormElement} */
+const copyBtn = document.querySelector("#copy-btn");
 /** @type {HTMLElement} */
 const alertElement = document.querySelector("#alert");
 /** @type {HTMLFormElement} */
@@ -40,6 +43,10 @@ const tierList = new TierList();
 const generator = new RandomPokemonGenerator(tierList);
 const config = Configuration.instance();
 const excelGenerator = new ExcelGenerator();
+const currentPokemon = new SelectedPokemon();
+currentPokemon.onChange((pokemonList) => {
+  copyBtn.style.display = "block";
+});
 
 const updateConfigurationFromForm = () => {
   /** @type {boolean} */
@@ -103,11 +110,13 @@ const loadConfigurationToForm = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   loadConfigurationToForm();
+  copyBtn.style.display = "none";
 });
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   alertElement.style.display = "none";
+  copyBtn.style.display = "none";
 
   /** @type {boolean} */
   const agChecked = agCheckbox.checked;
@@ -159,6 +168,8 @@ form.addEventListener("submit", (event) => {
     alertElement.style.display = "block";
     return;
   }
+
+  currentPokemon.setPokemons(selectedPokemons);
 
   /** @type {HTMLElement} */
   const ul = document.querySelector("#pokemon-list");
@@ -225,4 +236,19 @@ exportBtn.addEventListener("click", () => {
   );
 
   excelGenerator.generate(selectedPokemons);
+});
+
+copyBtn.addEventListener("click", () => {
+  const pokemonNames = currentPokemon.all.map((pokemon) => pokemon.name);
+  const content = pokemonNames.join("\n\n");
+  const title = pokemonNames.join(", ");
+
+  navigator.clipboard
+    .writeText(content)
+    .then(() => {
+      alert(`Team [${title}] copied to clipboard!`);
+    })
+    .catch((err) => {
+      console.error("Error copying to clipboard: ", err);
+    });
 });

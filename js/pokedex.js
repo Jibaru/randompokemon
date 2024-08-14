@@ -45,7 +45,7 @@ export const dex = {
     otherFormes: ["Venusaur-Mega"],
     formeOrder: ["Venusaur", "Venusaur-Mega"],
     canGigantamax: "G-Max Vine Lash",
-    tier: "NU",
+    tier: "PU",
   },
   venusaurmega: {
     num: 3,
@@ -1182,7 +1182,7 @@ export const dex = {
     eggGroups: ["Field"],
     otherFormes: ["Ninetales-Alola"],
     formeOrder: ["Ninetales", "Ninetales-Alola"],
-    tier: "NU",
+    tier: "PU",
   },
   ninetalesalola: {
     num: 38,
@@ -2332,7 +2332,7 @@ export const dex = {
     evoType: "useItem",
     evoItem: "Water Stone",
     eggGroups: ["Water 3"],
-    tier: "NU",
+    tier: "NUBL",
   },
   gastly: {
     num: 92,
@@ -3842,7 +3842,7 @@ export const dex = {
     prevo: "Croconaw",
     evoLevel: 30,
     eggGroups: ["Monster", "Water 1"],
-    tier: "NU",
+    tier: "NUBL",
   },
   sentret: {
     num: 161,
@@ -7857,7 +7857,7 @@ export const dex = {
     color: "Red",
     eggGroups: ["Undiscovered"],
     changesFrom: "Deoxys",
-    tier: "NU",
+    tier: "NUBL",
   },
   deoxysspeed: {
     num: 386,
@@ -8871,7 +8871,7 @@ export const dex = {
     eggGroups: ["Field", "Human-Like"],
     otherFormes: ["Lucario-Mega"],
     formeOrder: ["Lucario", "Lucario-Mega"],
-    tier: "NU",
+    tier: "NUBL",
   },
   lucariomega: {
     num: 448,
@@ -14864,7 +14864,7 @@ export const dex = {
     evoLevel: 25,
     evoCondition: "from a special Rockruff",
     eggGroups: ["Field"],
-    tier: "NU",
+    tier: "NUBL",
   },
   wishiwashi: {
     num: 746,
@@ -16455,7 +16455,7 @@ export const dex = {
     evoLevel: 16,
     evos: ["Rillaboom"],
     eggGroups: ["Field", "Grass"],
-    tier: "ZUBL",
+    tier: "ZU",
   },
   rillaboom: {
     num: 812,
@@ -16597,7 +16597,7 @@ export const dex = {
     evoLevel: 35,
     eggGroups: ["Water 1", "Field"],
     canGigantamax: "G-Max Hydrosnipe",
-    tier: "PU",
+    tier: "PUBL",
   },
   inteleongmax: {
     num: 818,
@@ -18392,7 +18392,7 @@ export const dex = {
     eggGroups: ["Field"],
     otherFormes: ["Ursaluna-Bloodmoon"],
     formeOrder: ["Ursaluna", "Ursaluna-Bloodmoon"],
-    tier: "UU",
+    tier: "UUBL",
   },
   ursalunabloodmoon: {
     num: 901,

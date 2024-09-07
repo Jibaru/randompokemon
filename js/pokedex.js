@@ -226,7 +226,7 @@ export const dex = {
     otherFormes: ["Blastoise-Mega"],
     formeOrder: ["Blastoise", "Blastoise-Mega"],
     canGigantamax: "G-Max Cannonade",
-    tier: "RU",
+    tier: "RUBL",
   },
   blastoisemega: {
     num: 9,
@@ -1182,7 +1182,7 @@ export const dex = {
     eggGroups: ["Field"],
     otherFormes: ["Ninetales-Alola"],
     formeOrder: ["Ninetales", "Ninetales-Alola"],
-    tier: "PU",
+    tier: "ZU",
   },
   ninetalesalola: {
     num: 38,
@@ -2563,7 +2563,7 @@ export const dex = {
     evoType: "useItem",
     evoItem: "Leaf Stone",
     eggGroups: ["Mineral"],
-    tier: "ZU",
+    tier: "ZUBL",
   },
   exeggcute: {
     num: 102,
@@ -9311,7 +9311,7 @@ export const dex = {
     eggGroups: ["Human-Like", "Amorphous"],
     otherFormes: ["Gallade-Mega"],
     formeOrder: ["Gallade", "Gallade-Mega"],
-    tier: "NU",
+    tier: "NUBL",
   },
   gallademega: {
     num: 475,
@@ -15863,7 +15863,7 @@ export const dex = {
     weightkg: 19,
     color: "Pink",
     eggGroups: ["Water 2"],
-    tier: "ZU",
+    tier: "ZUBL",
   },
   drampa: {
     num: 780,
@@ -19762,7 +19762,7 @@ export const dex = {
     color: "White",
     tags: ["Paradox"],
     eggGroups: ["Undiscovered"],
-    tier: "NU",
+    tier: "PU",
   },
   fluttermane: {
     num: 987,
@@ -20768,8 +20768,8 @@ export const dex = {
     num: -14,
     name: "Kitsunoh",
     types: ["Ghost", "Steel"],
-    baseStats: { hp: 80, atk: 103, def: 85, spa: 55, spd: 80, spe: 110 },
-    abilities: { 0: "Frisk", 1: "Limber", H: "Iron Fist" },
+    baseStats: { hp: 80, atk: 117, def: 85, spa: 55, spd: 80, spe: 128 },
+    abilities: { 0: "Frisk", 1: "Limber", H: "Trace" },
     heightm: 1.1,
     weightkg: 51,
     color: "Gray",

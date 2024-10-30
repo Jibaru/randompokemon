@@ -1,3 +1,5 @@
+import { Aliaser } from "./aliaser.js";
+
 const SPRITE_URL =
   "https://www.smogon.com/dex/media/sprites/xy/{imageName}.gif";
 const GEN_5_SPRITE_URL =
@@ -17,6 +19,7 @@ export class Pokemon {
     this._baseSpecies = baseSpecies;
     this._dexNumber = dexNumber;
     this._hasEvolutions = hasEvolutions;
+    this._aliaser = new Aliaser();
   }
 
   /**
@@ -59,6 +62,13 @@ export class Pokemon {
    */
   get doesNotHaveEvolutions() {
     return !this._hasEvolutions;
+  }
+
+  /**
+   * @returns {string[]}
+   */
+  get aliases() {
+    return this._aliaser.aliasesOf(this);
   }
 
   /**

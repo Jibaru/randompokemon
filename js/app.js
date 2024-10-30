@@ -182,6 +182,10 @@ form.addEventListener("submit", (event) => {
 
     span.textContent = pokemon.name;
 
+    if (pokemon.aliases.length > 0) {
+      span.textContent += ` (${pokemon.aliases})`;
+    }
+
     img.src = pokemon.imageUrl();
     const imageUrlHyphened = pokemon.imageUrlHyphened();
     img.onerror = function () {

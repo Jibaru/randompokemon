@@ -177,13 +177,16 @@ form.addEventListener("submit", (event) => {
 
   for (const pokemon of selectedPokemons) {
     const li = document.createElement("li");
-    const span = document.createElement("span");
+    const nameSpan = document.createElement("span");
+    const tierSpan = document.createElement("span");
     const img = document.createElement("img");
 
-    span.textContent = pokemon.name;
+    nameSpan.textContent = pokemon.name;
+    tierSpan.textContent = pokemon.tier;
+    tierSpan.classList.add("tier");
 
     if (pokemon.aliases.length > 0) {
-      span.textContent += ` (${pokemon.aliases})`;
+      nameSpan.textContent += ` (${pokemon.aliases})`;
     }
 
     img.src = pokemon.imageUrl();
@@ -193,7 +196,8 @@ form.addEventListener("submit", (event) => {
     };
     img.alt = pokemon.name;
 
-    li.appendChild(span);
+    li.appendChild(nameSpan);
+    li.appendChild(tierSpan);
     li.prepend(img);
     ul.appendChild(li);
   }

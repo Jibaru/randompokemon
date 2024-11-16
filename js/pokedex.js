@@ -34204,7 +34204,7 @@ export const dex = {
     color: "Black",
     tags: ["Sub-Legendary"],
     eggGroups: ["Undiscovered"],
-    tier: "UU",
+    tier: "UUBL",
   },
   munkidori: {
     num: 1015,

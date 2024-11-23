@@ -1,6 +1,7 @@
 import { Configuration } from "./configuration.js";
 import { ExcelGenerator } from "./excel.js";
 import { RandomPokemonGenerator } from "./generator.js";
+import { Player } from "./player.js";
 import { SelectedPokemon } from "./selected-pokemon.js";
 import { TierList } from "./tierlist.js";
 
@@ -10,6 +11,8 @@ const form = document.querySelector("#form");
 const exportBtn = document.querySelector("#export-btn");
 /** @type {HTMLFormElement} */
 const copyBtn = document.querySelector("#copy-btn");
+/** @type {HTMLFormElement} */
+const volumeBtn = document.querySelector("#volume-btn");
 /** @type {HTMLElement} */
 const alertElement = document.querySelector("#alert");
 /** @type {HTMLFormElement} */
@@ -42,6 +45,7 @@ const numberOfPokemonsInput = document.querySelector("#number-of-pokemons");
 const tierList = new TierList();
 const generator = new RandomPokemonGenerator(tierList);
 const config = Configuration.instance();
+const player = new Player();
 const excelGenerator = new ExcelGenerator();
 const currentPokemon = new SelectedPokemon();
 currentPokemon.onChange((pokemonList) => {
@@ -201,6 +205,8 @@ form.addEventListener("submit", (event) => {
     li.prepend(img);
     ul.appendChild(li);
   }
+
+  player.playIfNotPlaying();
 });
 
 exportBtn.addEventListener("click", () => {
@@ -259,4 +265,14 @@ copyBtn.addEventListener("click", () => {
     .catch((err) => {
       console.error("Error copying to clipboard: ", err);
     });
+});
+
+volumeBtn.addEventListener("click", () => {
+  if (player.isAtMinVolume()) {
+    player.setVolumen(0.03);
+    volumeBtn.textContent = "🔊";
+  } else {
+    player.setVolumen(0);
+    volumeBtn.textContent = "🔇";
+  }
 });

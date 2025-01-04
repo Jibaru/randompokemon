@@ -1987,7 +1987,7 @@ export const dex = {
     evoType: "useItem",
     evoItem: "Ice Stone",
     eggGroups: ["Field"],
-    tier: "RU",
+    tier: "NU",
   },
   jigglypuff: {
     num: 39,
@@ -4741,7 +4741,7 @@ export const dex = {
     evoLevel: 42,
     evos: ["Rhyperior"],
     eggGroups: ["Monster", "Field"],
-    tier: "NFE",
+    tier: "PU",
   },
   chansey: {
     num: 113,
@@ -5090,7 +5090,7 @@ export const dex = {
     color: "Green",
     evos: ["Scizor", "Kleavor"],
     eggGroups: ["Bug"],
-    tier: "PU",
+    tier: "NU",
   },
   jynx: {
     num: 124,
@@ -5989,7 +5989,7 @@ export const dex = {
     weightkg: 50.9,
     color: "Purple",
     eggGroups: ["Undiscovered"],
-    tier: "ZUBL",
+    tier: "PU",
   },
   zapdos: {
     num: 145,
@@ -6262,7 +6262,7 @@ export const dex = {
     color: "Pink",
     tags: ["Mythical"],
     eggGroups: ["Undiscovered"],
-    tier: "NUBL",
+    tier: "UU",
   },
   chikorita: {
     num: 152,
@@ -8858,7 +8858,7 @@ export const dex = {
     evoLevel: 20,
     evoCondition: "with an Atk stat equal to its Def stat",
     eggGroups: ["Human-Like"],
-    tier: "PU",
+    tier: "ZU",
   },
   smoochum: {
     num: 238,
@@ -8992,7 +8992,7 @@ export const dex = {
     prevo: "Chansey",
     evoType: "levelFriendship",
     eggGroups: ["Fairy"],
-    tier: "UU",
+    tier: "OU",
   },
   raikou: {
     num: 243,
@@ -9016,7 +9016,7 @@ export const dex = {
     color: "Yellow",
     tags: ["Sub-Legendary"],
     eggGroups: ["Undiscovered"],
-    tier: "PUBL",
+    tier: "NU",
   },
   entei: {
     num: 244,
@@ -9064,7 +9064,7 @@ export const dex = {
     color: "Blue",
     tags: ["Sub-Legendary"],
     eggGroups: ["Undiscovered"],
-    tier: "NUBL",
+    tier: "RU",
   },
   larvitar: {
     num: 246,
@@ -11455,7 +11455,7 @@ export const dex = {
     weightkg: 80.4,
     color: "Brown",
     eggGroups: ["Field"],
-    tier: "RU",
+    tier: "NU",
   },
   spoink: {
     num: 325,
@@ -13433,7 +13433,7 @@ export const dex = {
     color: "Red",
     eggGroups: ["Undiscovered"],
     changesFrom: "Deoxys",
-    tier: "OU",
+    tier: "UU",
   },
   turtwig: {
     num: 387,
@@ -13517,7 +13517,7 @@ export const dex = {
     prevo: "Grotle",
     evoLevel: 32,
     eggGroups: ["Monster", "Grass"],
-    tier: "NU",
+    tier: "PU",
   },
   chimchar: {
     num: 390,
@@ -14483,7 +14483,7 @@ export const dex = {
     eggGroups: ["Water 1", "Amorphous"],
     cosmeticFormes: ["Gastrodon-East"],
     formeOrder: ["Gastrodon", "Gastrodon-East"],
-    tier: "PU",
+    tier: "NU",
   },
   ambipom: {
     num: 424,
@@ -15633,7 +15633,7 @@ export const dex = {
     evoType: "trade",
     evoItem: "Protector",
     eggGroups: ["Monster", "Field"],
-    tier: "UU",
+    tier: "RU",
   },
   tangrowth: {
     num: 465,
@@ -15775,7 +15775,7 @@ export const dex = {
     evoType: "levelMove",
     evoMove: "Ancient Power",
     eggGroups: ["Bug"],
-    tier: "RU",
+    tier: "RUBL",
   },
   leafeon: {
     num: 470,
@@ -15886,7 +15886,7 @@ export const dex = {
     evoType: "levelMove",
     evoMove: "Ancient Power",
     eggGroups: ["Field"],
-    tier: "UU",
+    tier: "RU",
   },
   porygonz: {
     num: 474,
@@ -16207,7 +16207,7 @@ export const dex = {
     color: "Red",
     eggGroups: ["Amorphous"],
     changesFrom: "Rotom",
-    tier: "PU",
+    tier: "ZU",
   },
   uxie: {
     num: 480,
@@ -16230,7 +16230,7 @@ export const dex = {
     color: "Yellow",
     tags: ["Sub-Legendary"],
     eggGroups: ["Undiscovered"],
-    tier: "ZUBL",
+    tier: "PU",
   },
   mesprit: {
     num: 481,
@@ -18272,7 +18272,7 @@ export const dex = {
     prevo: "Gurdurr",
     evoType: "trade",
     eggGroups: ["Human-Like"],
-    tier: "RU",
+    tier: "UU",
   },
   tympole: {
     num: 535,
@@ -20063,7 +20063,7 @@ export const dex = {
     prevo: "Foongus",
     evoLevel: 39,
     eggGroups: ["Grass"],
-    tier: "RU",
+    tier: "NU",
   },
   frillish: {
     num: 592,
@@ -21350,7 +21350,7 @@ export const dex = {
     eggGroups: ["Undiscovered"],
     otherFormes: ["Tornadus-Therian"],
     formeOrder: ["Tornadus", "Tornadus-Therian"],
-    tier: "ZUBL",
+    tier: "NU",
   },
   tornadustherian: {
     num: 641,
@@ -21677,7 +21677,7 @@ export const dex = {
     tags: ["Mythical"],
     otherFormes: ["Meloetta-Pirouette"],
     formeOrder: ["Meloetta", "Meloetta-Pirouette"],
-    tier: "PU",
+    tier: "NU",
   },
   meloettapirouette: {
     num: 648,
@@ -22015,7 +22015,7 @@ export const dex = {
     prevo: "Braixen",
     evoLevel: 36,
     eggGroups: ["Field"],
-    tier: "ZUBL",
+    tier: "PU",
   },
   froakie: {
     num: 656,
@@ -23487,7 +23487,7 @@ export const dex = {
     weightkg: 21.5,
     color: "Green",
     eggGroups: ["Flying", "Human-Like"],
-    tier: "RUBL",
+    tier: "UU",
   },
   dedenne: {
     num: 702,
@@ -24361,7 +24361,7 @@ export const dex = {
     color: "Purple",
     eggGroups: ["Undiscovered"],
     changesFrom: "Hoopa",
-    tier: "UU",
+    tier: "UUBL",
   },
   volcanion: {
     num: 721,
@@ -24470,7 +24470,7 @@ export const dex = {
     eggGroups: ["Flying"],
     otherFormes: ["Decidueye-Hisui"],
     formeOrder: ["Decidueye", "Decidueye-Hisui"],
-    tier: "PU",
+    tier: "NU",
   },
   decidueyehisui: {
     num: 724,
@@ -24500,7 +24500,7 @@ export const dex = {
     prevo: "Dartrix",
     evoLevel: 36,
     eggGroups: ["Flying"],
-    tier: "ZU",
+    tier: "PU",
   },
   litten: {
     num: 725,
@@ -25213,7 +25213,7 @@ export const dex = {
     eggGroups: ["Field"],
     otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk"],
     formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk"],
-    tier: "ZU",
+    tier: "PU",
   },
   lycanrocmidnight: {
     num: 745,
@@ -25464,7 +25464,7 @@ export const dex = {
     eggGroups: ["Water 1", "Bug"],
     otherFormes: ["Araquanid-Totem"],
     formeOrder: ["Araquanid", "Araquanid-Totem"],
-    tier: "NU",
+    tier: "OU",
   },
   araquanidtotem: {
     num: 752,
@@ -28965,7 +28965,7 @@ export const dex = {
     eggGroups: ["Water 1", "Flying"],
     otherFormes: ["Cramorant-Gulping", "Cramorant-Gorging"],
     formeOrder: ["Cramorant", "Cramorant-Gulping", "Cramorant-Gorging"],
-    tier: "ZU",
+    tier: "PU",
   },
   cramorantgulping: {
     num: 845,
@@ -29406,7 +29406,7 @@ export const dex = {
     eggGroups: ["Mineral", "Amorphous"],
     otherFormes: ["Polteageist-Antique"],
     formeOrder: ["Polteageist", "Polteageist-Antique"],
-    tier: "RUBL",
+    tier: "UU",
   },
   polteageistantique: {
     num: 855,
@@ -29999,7 +29999,7 @@ export const dex = {
     evoType: "levelFriendship",
     evoCondition: "at night",
     eggGroups: ["Bug"],
-    tier: "ZU",
+    tier: "PU",
   },
   stonjourner: {
     num: 874,
@@ -30804,7 +30804,7 @@ export const dex = {
     tags: ["Mythical"],
     otherFormes: ["Zarude-Dada"],
     formeOrder: ["Zarude", "Zarude-Dada"],
-    tier: "RUBL",
+    tier: "UU",
   },
   zarudedada: {
     num: 893,
@@ -32879,7 +32879,7 @@ export const dex = {
     otherFormes: ["Palafin-Hero"],
     formeOrder: ["Palafin", "Palafin-Hero"],
     eggGroups: ["Field", "Water 2"],
-    tier: "Uber",
+    tier: "(OU)",
   },
   palafinhero: {
     num: 964,
@@ -32950,7 +32950,7 @@ export const dex = {
     prevo: "Varoom",
     evoLevel: 40,
     eggGroups: ["Mineral"],
-    tier: "RU",
+    tier: "UU",
   },
   cyclizar: {
     num: 967,
@@ -33338,7 +33338,7 @@ export const dex = {
     otherFormes: ["Dudunsparce-Three-Segment"],
     formeOrder: ["Dudunsparce", "Dudunsparce-Three-Segment"],
     eggGroups: ["Field"],
-    tier: "ZU",
+    tier: "ZUBL",
   },
   dudunsparcethreesegment: {
     num: 982,
@@ -34694,6 +34694,7 @@ export const dex = {
     eggGroups: ["Undiscovered"],
     battleOnly: "Terapagos",
     forceTeraType: "Stellar",
+    tier: "Uber",
   },
   pecharunt: {
     num: 1025,
@@ -34716,7 +34717,7 @@ export const dex = {
     color: "Purple",
     tags: ["Mythical"],
     eggGroups: ["Undiscovered"],
-    tier: "UU",
+    tier: "OU",
   },
   missingno: {
     num: 0,
@@ -36784,6 +36785,30 @@ export const dex = {
     weightkg: 201.6,
     color: "Black",
     eggGroups: ["Dragon", "Mineral"],
+    gen: 9,
+    tier: "CAP",
+    isNonstandard: "CAP",
+  },
+  shox: {
+    num: -77,
+    name: "Shox",
+    types: ["Electric", "Normal"],
+    baseStats: {
+      hp: 136,
+      atk: 73,
+      def: 81,
+      spa: 90,
+      spd: 98,
+      spe: 56,
+    },
+    abilities: {
+      0: "Electromorphosis",
+      1: "Sticky Hold",
+    },
+    heightm: 3,
+    weightkg: 99.9,
+    color: "Brown",
+    eggGroups: ["Field"],
     gen: 9,
     tier: "CAP",
     isNonstandard: "CAP",

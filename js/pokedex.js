@@ -1361,7 +1361,7 @@ export const dex = {
     prevo: "Venonat",
     evoLevel: 31,
     eggGroups: ["Bug"],
-    tier: "ZU",
+    tier: "ZUBL",
   },
   diglett: {
     num: 50,
@@ -2127,7 +2127,7 @@ export const dex = {
     evoType: "useItem",
     evoItem: "Galarica Cuff",
     eggGroups: ["Monster", "Water 1"],
-    tier: "NU",
+    tier: "PU",
   },
   magnemite: {
     num: 81,
@@ -2692,7 +2692,7 @@ export const dex = {
     evoLevel: 20,
     evoCondition: "with an Atk stat > its Def stat",
     eggGroups: ["Human-Like"],
-    tier: "ZU",
+    tier: "PU",
   },
   hitmonchan: {
     num: 107,
@@ -3181,7 +3181,7 @@ export const dex = {
     eggGroups: ["Water 2", "Dragon"],
     otherFormes: ["Gyarados-Mega"],
     formeOrder: ["Gyarados", "Gyarados-Mega"],
-    tier: "NUBL",
+    tier: "RU",
   },
   gyaradosmega: {
     num: 130,
@@ -3688,7 +3688,7 @@ export const dex = {
     color: "Pink",
     tags: ["Mythical"],
     eggGroups: ["Undiscovered"],
-    tier: "UU",
+    tier: "RU",
   },
   chikorita: {
     num: 152,
@@ -3797,7 +3797,7 @@ export const dex = {
     prevo: "Quilava",
     evoLevel: 36,
     eggGroups: ["Field"],
-    tier: "NU",
+    tier: "PU",
   },
   totodile: {
     num: 158,
@@ -3842,7 +3842,7 @@ export const dex = {
     prevo: "Croconaw",
     evoLevel: 30,
     eggGroups: ["Monster", "Water 1"],
-    tier: "NUBL",
+    tier: "RU",
   },
   sentret: {
     num: 161,
@@ -4410,7 +4410,7 @@ export const dex = {
     evoType: "levelFriendship",
     evoCondition: "during the day",
     eggGroups: ["Field"],
-    tier: "NU",
+    tier: "PU",
   },
   umbreon: {
     num: 197,
@@ -4719,7 +4719,7 @@ export const dex = {
     eggGroups: ["Water 2"],
     otherFormes: ["Qwilfish-Hisui"],
     formeOrder: ["Qwilfish", "Qwilfish-Hisui"],
-    tier: "ZU",
+    tier: "PU",
   },
   qwilfishhisui: {
     num: 211,
@@ -4825,7 +4825,7 @@ export const dex = {
     eggGroups: ["Field"],
     otherFormes: ["Sneasel-Hisui"],
     formeOrder: ["Sneasel", "Sneasel-Hisui"],
-    tier: "ZU",
+    tier: "NFE",
   },
   sneaselhisui: {
     num: 215,
@@ -5130,7 +5130,7 @@ export const dex = {
     evoItem: "Up-Grade",
     evos: ["Porygon-Z"],
     eggGroups: ["Mineral"],
-    tier: "NFE",
+    tier: "NU",
   },
   stantler: {
     num: 234,
@@ -5232,7 +5232,7 @@ export const dex = {
     evos: ["Magmar"],
     eggGroups: ["Undiscovered"],
     canHatch: true,
-    tier: "LC",
+    tier: "NFE",
   },
   miltank: {
     num: 241,
@@ -5261,7 +5261,7 @@ export const dex = {
     prevo: "Chansey",
     evoType: "levelFriendship",
     eggGroups: ["Fairy"],
-    tier: "OU",
+    tier: "UU",
   },
   raikou: {
     num: 243,
@@ -6691,7 +6691,7 @@ export const dex = {
     weightkg: 80.4,
     color: "Brown",
     eggGroups: ["Field"],
-    tier: "PU",
+    tier: "ZU",
   },
   spoink: {
     num: 325,
@@ -7072,7 +7072,7 @@ export const dex = {
     evoType: "trade",
     evoItem: "Prism Scale",
     eggGroups: ["Water 1", "Dragon"],
-    tier: "NU",
+    tier: "PU",
   },
   castform: {
     num: 351,
@@ -7629,7 +7629,7 @@ export const dex = {
     color: "Gray",
     tags: ["Sub-Legendary"],
     eggGroups: ["Undiscovered"],
-    tier: "NU",
+    tier: "RU",
   },
   latias: {
     num: 380,
@@ -9087,7 +9087,7 @@ export const dex = {
     evoItem: "Razor Claw",
     evoCondition: "at night",
     eggGroups: ["Field"],
-    tier: "UU",
+    tier: "OU",
   },
   magnezone: {
     num: 462,
@@ -13656,7 +13656,7 @@ export const dex = {
     prevo: "Skrelp",
     evoLevel: 48,
     eggGroups: ["Water 1", "Dragon"],
-    tier: "NU",
+    tier: "PUBL",
   },
   clauncher: {
     num: 692,
@@ -14133,7 +14133,7 @@ export const dex = {
     prevo: "Bergmite",
     evoLevel: 37,
     eggGroups: ["Monster", "Mineral"],
-    tier: "ZU",
+    tier: "PU",
   },
   noibat: {
     num: 714,
@@ -14716,7 +14716,7 @@ export const dex = {
     color: "Yellow",
     eggGroups: ["Flying"],
     changesFrom: "Oricorio",
-    tier: "NUBL",
+    tier: "RU",
   },
   oricoriopau: {
     num: 741,
@@ -14846,7 +14846,7 @@ export const dex = {
     eggGroups: ["Field"],
     otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk"],
     formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk"],
-    tier: "PU",
+    tier: "ZU",
   },
   lycanrocmidnight: {
     num: 745,
@@ -15299,7 +15299,7 @@ export const dex = {
     prevo: "Sandygast",
     evoLevel: 42,
     eggGroups: ["Amorphous"],
-    tier: "ZU",
+    tier: "PU",
   },
   pyukumuku: {
     num: 771,
@@ -15729,7 +15729,7 @@ export const dex = {
       "Minior-Indigo",
       "Minior-Violet",
     ],
-    tier: "PU",
+    tier: "ZU",
   },
   miniormeteor: {
     num: 774,
@@ -15879,7 +15879,7 @@ export const dex = {
     weightkg: 19,
     color: "Pink",
     eggGroups: ["Water 2"],
-    tier: "ZUBL",
+    tier: "PU",
   },
   drampa: {
     num: 780,
@@ -16487,7 +16487,7 @@ export const dex = {
     evoLevel: 35,
     eggGroups: ["Field", "Grass"],
     canGigantamax: "G-Max Drum Solo",
-    tier: "OU",
+    tier: "UU",
   },
   rillaboomgmax: {
     num: 812,
@@ -17221,7 +17221,7 @@ export const dex = {
     otherFormes: ["Toxtricity-Low-Key"],
     formeOrder: ["Toxtricity", "Toxtricity-Low-Key"],
     canGigantamax: "G-Max Stun Shock",
-    tier: "PU",
+    tier: "NU",
   },
   toxtricitylowkey: {
     num: 849,
@@ -17397,7 +17397,7 @@ export const dex = {
     eggGroups: ["Mineral", "Amorphous"],
     otherFormes: ["Polteageist-Antique"],
     formeOrder: ["Polteageist", "Polteageist-Antique"],
-    tier: "UU",
+    tier: "UUBL",
   },
   polteageistantique: {
     num: 855,
@@ -17444,7 +17444,7 @@ export const dex = {
     evoLevel: 32,
     evos: ["Hatterene"],
     eggGroups: ["Fairy"],
-    tier: "NFE",
+    tier: "ZU",
   },
   hatterene: {
     num: 858,
@@ -17887,7 +17887,7 @@ export const dex = {
     evoLevel: 34,
     eggGroups: ["Field", "Mineral"],
     canGigantamax: "G-Max Steelsurge",
-    tier: "PU",
+    tier: "NU",
   },
   copperajahgmax: {
     num: 879,
@@ -18570,7 +18570,7 @@ export const dex = {
     prevo: "Floragato",
     evoLevel: 36,
     eggGroups: ["Field", "Grass"],
-    tier: "OU",
+    tier: "UU",
   },
   fuecoco: {
     num: 909,
@@ -18660,7 +18660,7 @@ export const dex = {
     prevo: "Quaxwell",
     evoLevel: 36,
     eggGroups: ["Flying", "Water 1"],
-    tier: "UU",
+    tier: "UUBL",
   },
   lechonk: {
     num: 915,
@@ -19374,7 +19374,7 @@ export const dex = {
     prevo: "Tinkatuff",
     evoLevel: 38,
     eggGroups: ["Fairy"],
-    tier: "UU",
+    tier: "OU",
   },
   wiglett: {
     num: 960,
@@ -19576,7 +19576,7 @@ export const dex = {
     weightkg: 37,
     color: "Pink",
     eggGroups: ["Flying"],
-    tier: "PUBL",
+    tier: "NU",
   },
   cetoddle: {
     num: 974,
@@ -19705,7 +19705,7 @@ export const dex = {
     otherFormes: ["Dudunsparce-Three-Segment"],
     formeOrder: ["Dudunsparce", "Dudunsparce-Three-Segment"],
     eggGroups: ["Field"],
-    tier: "ZUBL",
+    tier: "PU",
   },
   dudunsparcethreesegment: {
     num: 982,
@@ -19876,7 +19876,7 @@ export const dex = {
     color: "Blue",
     tags: ["Paradox"],
     eggGroups: ["Undiscovered"],
-    tier: "RUBL",
+    tier: "UU",
   },
   ironmoth: {
     num: 994,
@@ -20065,7 +20065,7 @@ export const dex = {
     color: "Blue",
     tags: ["Paradox"],
     eggGroups: ["Undiscovered"],
-    tier: "OU",
+    tier: "Uber",
   },
   ironvaliant: {
     num: 1006,
@@ -20785,7 +20785,7 @@ export const dex = {
     num: -14,
     name: "Kitsunoh",
     types: ["Ghost", "Steel"],
-    baseStats: { hp: 80, atk: 117, def: 85, spa: 55, spd: 80, spe: 128 },
+    baseStats: { hp: 80, atk: 103, def: 85, spa: 55, spd: 80, spe: 120 },
     abilities: { 0: "Frisk", 1: "Limber", H: "Trace" },
     heightm: 1.1,
     weightkg: 51,
@@ -21817,8 +21817,8 @@ export const dex = {
     num: -77,
     name: "Shox",
     types: ["Electric", "Normal"],
-    baseStats: { hp: 136, atk: 73, def: 81, spa: 90, spd: 98, spe: 56 },
-    abilities: { 0: "Electromorphosis", 1: "Sticky Hold" },
+    baseStats: { hp: 136, atk: 55, def: 87, spa: 108, spd: 108, spe: 56 },
+    abilities: { 0: "Electromorphosis", 1: "Sticky Hold", H: "Cud Chew" },
     heightm: 3,
     weightkg: 99.9,
     color: "Brown",
